@@ -5,6 +5,7 @@
  */
 package br.com.estoquen1.console;
 
+import br.com.estoquen1.crud.ProdutoDao;
 import br.com.estoquen1.model.ColorEnum;
 import br.com.estoquen1.model.Produto;
 import br.com.estoquen1.model.SizeEnum;
@@ -131,6 +132,16 @@ public class EstadoConsoleInsertProduct extends MaquinaEstadoConsole{
         DateFormat df = new SimpleDateFormat("dd/MM/yy");
         Date dateobj = new Date();
         product.setDataEntrada(df.format(dateobj));
+        
+        try {
+            boolean success = ProdutoDao.insertProduct(product);
+            
+            if (success) {
+                System.out.println("Produto cadastrado com sucesso!");
+            }
+        } catch (Exception e) {
+            Estoque.estadoConsole = EnumEstadoConsole.MENU_PRINCIPAL.getEstadoMaquina();
+        }
         
         Estoque.estadoConsole = EnumEstadoConsole.MENU_PRINCIPAL.getEstadoMaquina();
         return sair;
