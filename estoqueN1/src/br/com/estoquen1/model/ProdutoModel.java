@@ -13,7 +13,7 @@ import java.time.LocalDate;
  */
 public class ProdutoModel {
 
-    
+
     private int codItem;
     private LocalDate dataCompra;
     private String localCompra;
