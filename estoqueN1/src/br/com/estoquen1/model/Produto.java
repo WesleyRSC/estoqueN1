@@ -11,17 +11,17 @@ import java.time.LocalDate;
  *
  * @author fh139
  */
-public class ProdutoModel {
+public class Produto {
 
 
-    private int codItem;
-    private LocalDate dataCompra;
+    private String codItem;
+    private LocalDate dataEntrada;
     private String localCompra;
     private String tipo;
     private String marca;
     private String caracteristicas;
-    private String tamanho;
-    private String cor;
+    private SizeEnum tamanho;
+    private ColorEnum cor;
     private float valorEtiqueta;
     private float valorPago;
     private float valorMargem;
@@ -31,14 +31,14 @@ public class ProdutoModel {
     /**
      * @return the codItem
      */
-    public int getCodItem() {
+    public String getCodItem() {
         return codItem;
     }
 
     /**
      * @param codItem the codItem to set
      */
-    public void setCodItem(int codItem) {
+    public void setCodItem(String codItem) {
         this.codItem = codItem;
     }
 
@@ -46,14 +46,14 @@ public class ProdutoModel {
      * @return the dataCompra
      */
     public LocalDate getDataCompra() {
-        return dataCompra;
+        return dataEntrada;
     }
 
     /**
      * @param dataCompra the dataCompra to set
      */
     public void setDataCompra(LocalDate dataCompra) {
-        this.dataCompra = dataCompra;
+        this.dataEntrada = dataCompra;
     }
 
     /**
@@ -115,28 +115,28 @@ public class ProdutoModel {
     /**
      * @return the tamanho
      */
-    public String getTamanho() {
+    public SizeEnum getTamanho() {
         return tamanho;
     }
 
     /**
      * @param tamanho the tamanho to set
      */
-    public void setTamanho(String tamanho) {
+    public void setTamanho(SizeEnum tamanho) {
         this.tamanho = tamanho;
     }
 
     /**
      * @return the cor
      */
-    public String getCor() {
+    public ColorEnum getCor() {
         return cor;
     }
 
     /**
      * @param cor the cor to set
      */
-    public void setCor(String cor) {
+    public void setCor(ColorEnum cor) {
         this.cor = cor;
     }
 
@@ -194,5 +194,23 @@ public class ProdutoModel {
      */
     public void setPreco(float preco) {
         this.preco = preco;
+    }
+    
+    public boolean verifySizeEnum(String enumTest) {
+        for (SizeEnum c : SizeEnum.values()) {
+            if (c.name().equals(enumTest)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean verifyColorEnum(String enumTest) {
+        for (ColorEnum c : ColorEnum.values()) {
+            if (c.name().equals(enumTest)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
