@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 package br.com.estoquen1.model;
-
-import java.time.LocalDate;
+import java.util.Date;
 
 /**
  *
@@ -15,7 +14,7 @@ public class Produto {
 
 
     private String codItem;
-    private LocalDate dataEntrada;
+    private String dataEntrada;
     private String localCompra;
     private String tipo;
     private String marca;
@@ -43,16 +42,16 @@ public class Produto {
     }
 
     /**
-     * @return the dataCompra
+     * @return the dataEntrada
      */
-    public LocalDate getDataCompra() {
+    public String getDataEntrada() {
         return dataEntrada;
     }
 
     /**
-     * @param dataCompra the dataCompra to set
+     * @param dataEntrada the dataCompra to set
      */
-    public void setDataCompra(LocalDate dataCompra) {
+    public void setDataEntrada(String dataCompra) {
         this.dataEntrada = dataCompra;
     }
 

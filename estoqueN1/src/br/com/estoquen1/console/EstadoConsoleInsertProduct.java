@@ -8,6 +8,10 @@ package br.com.estoquen1.console;
 import br.com.estoquen1.model.ColorEnum;
 import br.com.estoquen1.model.Produto;
 import br.com.estoquen1.model.SizeEnum;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -44,6 +48,7 @@ public class EstadoConsoleInsertProduct extends MaquinaEstadoConsole{
         boolean validSize = false;
         String size = "";
         System.out.println("Digite o tamanho:");
+        System.out.println("Opções: " + Arrays.asList(SizeEnum.values()));
         while(!validSize) {
             size = scan.nextLine();
 
@@ -58,6 +63,7 @@ public class EstadoConsoleInsertProduct extends MaquinaEstadoConsole{
         boolean validColor = false;
         String color = "";
         System.out.println("Digite a cor predominante:");
+        System.out.println("Opções: " + Arrays.asList(ColorEnum.values()));
         while(!validColor) {
             color = scan.nextLine();
 
@@ -109,7 +115,7 @@ public class EstadoConsoleInsertProduct extends MaquinaEstadoConsole{
         }
         product.setValorMargem(Float.parseFloat(valorMargem));
         
-        System.out.println("Digite o valor de margem:");
+        System.out.println("Digite o valor do preço:");
         boolean validPreco = false;
         String preco = "";
         while(!validPreco) {
@@ -121,6 +127,10 @@ public class EstadoConsoleInsertProduct extends MaquinaEstadoConsole{
             }
         }
         product.setValorMargem(Float.parseFloat(preco));
+        
+        DateFormat df = new SimpleDateFormat("dd/MM/yy");
+        Date dateobj = new Date();
+        product.setDataEntrada(df.format(dateobj));
         
         Estoque.estadoConsole = EnumEstadoConsole.MENU_PRINCIPAL.getEstadoMaquina();
         return sair;
