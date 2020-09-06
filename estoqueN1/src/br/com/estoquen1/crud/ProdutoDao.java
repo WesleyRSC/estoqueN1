@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package estoquen1.dao;
-
+package br.com.estoquen1.crud;
 /**
  *
  * @author fh139
  */
-public class Dao {
+public class ProdutoDao {
     
 }

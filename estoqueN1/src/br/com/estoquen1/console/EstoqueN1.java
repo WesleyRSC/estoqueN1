@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package estoquen1;
+package br.com.estoquen1.console;
 
 /**
  *
