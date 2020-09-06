@@ -14,7 +14,8 @@ public enum  EnumEstadoConsole {
     MENU_PRINCIPAL (new EstadoConsoleMenuPrincipal()),
     INSERT_PRODUCT (new EstadoConsoleInsertProduct()),
     UPDATE_PRODUCT (new EstadoConsoleUpdateProduct()),
-    DELETE_PRODUCT (new EstadoConsoleDeleteProduct());
+    DELETE_PRODUCT (new EstadoConsoleDeleteProduct()),
+    GET_PRODUCT (new EstadoConsoleGetProduct());
  
     private final MaquinaEstadoConsole estadoMaquina;
     

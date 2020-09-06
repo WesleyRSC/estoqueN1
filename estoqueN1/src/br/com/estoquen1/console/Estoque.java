@@ -14,7 +14,7 @@ public class Estoque {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        estadoConsole = EnumEstadoConsole.MENU_PRINCIPAL.getEstadoMaquina();;
+        estadoConsole = EnumEstadoConsole.MENU_PRINCIPAL.getEstadoMaquina();
         Boolean saida = false;
         while (!saida) {
             saida = estadoConsole.Executa();
