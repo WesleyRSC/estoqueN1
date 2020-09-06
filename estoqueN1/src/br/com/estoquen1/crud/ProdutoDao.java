@@ -37,7 +37,7 @@ public class ProdutoDao {
                     //Converting JSON content into a Product list
                     Gson gson = new Gson();
                     Produto[] products = gson.fromJson(content, Produto[].class);
-                    System.out.println(products);
+
                     for (Produto product : products) {
                         productMap.put(product.getCodItem(), product);
                     }
