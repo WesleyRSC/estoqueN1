@@ -17,7 +17,7 @@ public class EstadoConsoleInsertProduct extends MaquinaEstadoConsole{
     @Override
     public boolean Executa() {
         boolean sair = false;
-    
+        System.out.println("");
         System.out.println("*** Inserir Produto ***");
         Produto product = new Produto();
         

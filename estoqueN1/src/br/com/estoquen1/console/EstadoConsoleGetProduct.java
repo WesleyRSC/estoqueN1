@@ -25,7 +25,7 @@ public class EstadoConsoleGetProduct extends MaquinaEstadoConsole{
             System.out.println("Tipo: " + product.getTipo());
             System.out.println("Marca: " + product.getMarca());
             System.out.println("Características: " + product.getCaracteristicas());
-            System.out.println("Tamanho" + product.getTamanho());
+            System.out.println("Tamanho: " + product.getTamanho());
             System.out.println("Cor predominante: " + product.getCor());
             System.out.println("Valor da Etiqueta: R$" + product.getValorEtiqueta());
             System.out.println("Valor Pago: R$" + product.getValorPago());

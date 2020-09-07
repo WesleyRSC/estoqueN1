@@ -8,7 +8,7 @@ public class EstadoConsoleDeleteProduct extends MaquinaEstadoConsole{
     @Override
     public boolean Executa() {
         boolean sair = false;
-
+        System.out.println("");
         System.out.println("*** Deletar Produto ***");
         
         Scanner scan = new Scanner(System.in);
