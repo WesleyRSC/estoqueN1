@@ -1,1 +1,0 @@
-[{"codItem":"456","dataEntrada":"06/09/20","localCompra":"Test2","tipo":"Test2","marca":"Test2","caracteristicas":"Test2","tamanho":"G","cor":"LARANJA","valorEtiqueta":1.0,"valorPago":1.0,"valorMargem":1.0,"preco":0.0}]
