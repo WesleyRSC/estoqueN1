@@ -1,15 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.estoquen1.model;
 import java.util.Date;
 
-/**
- *
- * @author fh139
- */
 public class Produto {
 
 
@@ -24,7 +15,7 @@ public class Produto {
     private float valorEtiqueta;
     private float valorPago;
     private float valorMargem;
-    private float preco;
+    private float precoSugerido;
     
     
     /**
@@ -184,15 +175,15 @@ public class Produto {
     /**
      * @return the preco
      */
-    public float getPreco() {
-        return preco;
+    public float getPrecoSugerido() {
+        return precoSugerido;
     }
 
     /**
      * @param preco the preco to set
      */
-    public void setPreco(float preco) {
-        this.preco = preco;
+    public void setPrecoSugerido(float preco) {
+        this.precoSugerido = preco;
     }
     
     public boolean verifySizeEnum(String enumTest) {

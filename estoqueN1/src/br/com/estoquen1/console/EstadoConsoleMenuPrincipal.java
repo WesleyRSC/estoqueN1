@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.estoquen1.console;
 
 import java.util.Scanner;
 
-/**
- *
- * @author Nescara
- */
 public class EstadoConsoleMenuPrincipal extends MaquinaEstadoConsole{
 
     @Override
@@ -22,24 +13,28 @@ public class EstadoConsoleMenuPrincipal extends MaquinaEstadoConsole{
         System.out.println("2 - Deletar Produto");
         System.out.println("3 - Buscar Produto");
         System.out.println("4 - Sair");
-        int opcao = scan.nextInt();
+        
+        String opcao = scan.nextLine();
         switch (opcao)
         {
-            case 0:
+            case "0":
                 Estoque.estadoConsole = EnumEstadoConsole.INSERT_PRODUCT.getEstadoMaquina();
                 break;
-            case 1:
+            case "1":
                 Estoque.estadoConsole = EnumEstadoConsole.UPDATE_PRODUCT.getEstadoMaquina();
                 break;
-            case 2:
+            case "2":
                 Estoque.estadoConsole = EnumEstadoConsole.DELETE_PRODUCT.getEstadoMaquina();
                 break;
-            case 3:
+            case "3":
                 Estoque.estadoConsole = EnumEstadoConsole.GET_PRODUCT.getEstadoMaquina();
                 break;
-            case 4:
+            case "4":
                 return true;
+            default:
+                System.out.println("Opção inválida!");
         }
         return false;
     }
+    
 }

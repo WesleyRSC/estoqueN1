@@ -1,17 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.estoquen1.console;
 
 import br.com.estoquen1.crud.ProdutoDao;
 import java.util.Scanner;
 
-/**
- *
- * @author Nescara
- */
 public class EstadoConsoleDeleteProduct extends MaquinaEstadoConsole{
 
     @Override

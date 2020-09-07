@@ -1,18 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.estoquen1.console;
 
 import br.com.estoquen1.crud.ProdutoDao;
 import br.com.estoquen1.model.Produto;
 import java.util.Scanner;
 
-/**
- *
- * @author Nescara
- */
 public class EstadoConsoleGetProduct extends MaquinaEstadoConsole{
 
     @Override
@@ -39,7 +30,7 @@ public class EstadoConsoleGetProduct extends MaquinaEstadoConsole{
             System.out.println("Valor da Etiqueta: R$" + product.getValorEtiqueta());
             System.out.println("Valor Pago: R$" + product.getValorPago());
             System.out.println("Valor de Margem: R$" + product.getValorMargem());
-            System.out.println("Preço: R$" + product.getPreco());
+            System.out.println("Preço sugerido: R$" + product.getPrecoSugerido());
         } else {
             System.out.println("Item não existe!");
         }

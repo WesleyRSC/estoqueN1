@@ -1,25 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.estoquen1.console;
 
 import br.com.estoquen1.crud.ProdutoDao;
 import br.com.estoquen1.model.ColorEnum;
 import br.com.estoquen1.model.Produto;
 import br.com.estoquen1.model.SizeEnum;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.Scanner;
 
-/**
- *
- * @author Nescara
- */
 public class EstadoConsoleUpdateProduct extends MaquinaEstadoConsole{
+
+    public final String INVALID_VALUE_MSG = "Valor inválido, digite novamente.";
 
     @Override
     public boolean Executa() {
@@ -41,18 +31,51 @@ public class EstadoConsoleUpdateProduct extends MaquinaEstadoConsole{
             return sair;
         }
         
+        //Local da compra do produto
         System.out.println("Digite o local da compra:");
-        product.setLocalCompra(scan.nextLine());
-        
+        String localCompra = "";
+        while(localCompra.isEmpty()) {
+            localCompra = scan.nextLine();
+            if (localCompra.isEmpty()) {
+                System.out.println(INVALID_VALUE_MSG);
+            }
+        }
+        product.setLocalCompra(localCompra);
+
+        //Tipo do produto
         System.out.println("Digite o tipo do produto:");
-        product.setTipo(scan.nextLine());
-        
+        String tipo = "";
+        while(tipo.isEmpty()) {
+            tipo = scan.nextLine();
+            if (tipo.isEmpty()) {
+                System.out.println(INVALID_VALUE_MSG);
+            }
+        }
+        product.setTipo(tipo);
+
+        //Marca do produto
         System.out.println("Digite a marca do produto:");
-        product.setMarca(scan.nextLine());
-        
+        String marca = "";
+        while(marca.isEmpty()) {
+            marca = scan.nextLine();
+            if (marca.isEmpty()) {
+                System.out.println(INVALID_VALUE_MSG);
+            }
+        }
+        product.setMarca(marca);
+
+        //Características do produto
         System.out.println("Digite as caracteristicas:");
-        product.setCaracteristicas(scan.nextLine());
+        String caracteristicas = "";
+        while(caracteristicas.isEmpty()) {
+            caracteristicas = scan.nextLine();
+            if (caracteristicas.isEmpty()) {
+                System.out.println(INVALID_VALUE_MSG);
+            }
+        }
+        product.setCaracteristicas(caracteristicas);
         
+        //Tamanho do produto
         boolean validSize = false;
         String size = "";
         System.out.println("Digite o tamanho:");
@@ -63,11 +86,12 @@ public class EstadoConsoleUpdateProduct extends MaquinaEstadoConsole{
             if (product.verifySizeEnum(size.toUpperCase())) {
                 validSize = true;
             } else {
-                System.out.println("Valor inválido, digite novamente.");
+                System.out.println(INVALID_VALUE_MSG);
             }
         }
         product.setTamanho(SizeEnum.valueOf(size.toUpperCase()));
         
+        //Cor do produto
         boolean validColor = false;
         String color = "";
         System.out.println("Digite a cor predominante:");
@@ -78,12 +102,12 @@ public class EstadoConsoleUpdateProduct extends MaquinaEstadoConsole{
             if (product.verifyColorEnum(color.toUpperCase())) {
                 validColor = true;
             } else {
-                System.out.println("Valor inválido, digite novamente.");
+                System.out.println(INVALID_VALUE_MSG);
             }
         }
         product.setCor(ColorEnum.valueOf(color.toUpperCase()));
         
-        
+        //Valor da etiqueta do produto
         System.out.println("Digite o valor da etiqueta:");
         boolean validValorEtiqueta = false;
         String valorEtiqueta = "";
@@ -92,11 +116,12 @@ public class EstadoConsoleUpdateProduct extends MaquinaEstadoConsole{
             if (isFloat(valorEtiqueta)) {
                 validValorEtiqueta = true;
             } else {
-                System.out.println("Valor inválido, digite novamente.");
+                System.out.println(INVALID_VALUE_MSG);
             }
         }
         product.setValorEtiqueta(Float.parseFloat(valorEtiqueta));
         
+        //Valor pago pelo produto
         System.out.println("Digite o valor pago:");
         boolean validValorPago = false;
         String valorPago = "";
@@ -105,25 +130,17 @@ public class EstadoConsoleUpdateProduct extends MaquinaEstadoConsole{
             if (isFloat(valorPago)) {
                 validValorPago = true;
             } else {
-                System.out.println("Valor inválido, digite novamente.");
+                System.out.println(INVALID_VALUE_MSG);
             }
         }
-        product.setValorPago(Float.parseFloat(valorPago));
+        float valor = Float.parseFloat(valorPago);
+        product.setValorPago(valor);
 
-        System.out.println("Digite o valor de margem:");
-        boolean validValorMargem = false;
-        String valorMargem = "";
-        while(!validValorMargem) {
-            valorMargem = scan.nextLine();
-            if (isFloat(valorMargem)) {
-                validValorMargem = true;
-            } else {
-                System.out.println("Valor inválido, digite novamente.");
-            }
-        }
-        product.setValorMargem(Float.parseFloat(valorMargem));
+        //Valor de margem de 100% do produto
+        product.setValorMargem(valor * 2);
         
-        System.out.println("Digite o valor do preço:");
+        //Valor de preço sugerido do produto
+        System.out.println("Digite o valor do preço sugerido:");
         boolean validPreco = false;
         String preco = "";
         while(!validPreco) {
@@ -131,15 +148,12 @@ public class EstadoConsoleUpdateProduct extends MaquinaEstadoConsole{
             if (isFloat(preco)) {
                 validPreco = true;
             } else {
-                System.out.println("Valor inválido, digite novamente.");
+                System.out.println(INVALID_VALUE_MSG);
             }
         }
-        product.setValorMargem(Float.parseFloat(preco));
+        product.setPrecoSugerido(Float.parseFloat(preco));
         
-        DateFormat df = new SimpleDateFormat("dd/MM/yy");
-        Date dateobj = new Date();
-        product.setDataEntrada(df.format(dateobj));
-        
+        //Atualizando produto
         try {
             boolean success = ProdutoDao.updateProduct(product);
             
